@@ -1,6 +1,13 @@
 <script>
     export let code = 0
 </script>
-<span class="text-6xl">
+
+<style>
+    .emoticon {
+        @apply text-6xl;
+    }
+</style>
+
+<span class="emoticon">
     {@html `&#1285${ 12 + (code % 56)};`}
 </span>
