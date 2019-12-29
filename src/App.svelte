@@ -1,16 +1,16 @@
 <script>
-
+	import Tailwind from './Tailwind.svelte'
+	import Button from './Button.svelte'
+	import Emoticon from './Emoticon.svelte'
+	let counter = 0
 </script>
 
-<main>
-	<h1>Hello World!</h1>
-</main>
+<Tailwind />
 
-<style>
-	:global(html, body) {
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		padding: 0;
-	}
-</style>
+<main class="p-4">	
+	<h1 class="text-4xl mb-2">Svelte & Tailwind</h1>
+	<Button class="mb-3" on:click={() => counter++}>Button</Button>
+	<div>
+		<Emoticon code={counter} />
+	</div>
+</main>
