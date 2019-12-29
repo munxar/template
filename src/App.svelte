@@ -1,10 +1,23 @@
 <script>
-
+	import { onMount } from 'svelte'
+	let canvas
+	let ctx
+	const update = tick => {
+		requestAnimationFrame(update)
+		const width = canvas.width = window.innerWidth
+		const height = canvas.height = window.innerHeight
+		const shade = 127 + Math.sin(tick / 120) * 127
+		ctx.fillStyle = `rgb(${shade}, ${shade}, ${shade})`
+		ctx.fillRect(0, 0, width, height)			
+	}
+	onMount(() => {
+		ctx = canvas.getContext('2d')
+		requestAnimationFrame(update)
+	})
 </script>
 
-<main>
-	<h1>Hello World!</h1>
-</main>
+<canvas bind:this={canvas}>
+</canvas>
 
 <style>
 	:global(html, body) {
